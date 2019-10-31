@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
-        Vector3 mousePosition3d = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition3d = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
         _mousePosition = new Vector3(mousePosition3d.x, mousePosition3d.y, 0);
         isShooting = Input.GetKeyDown(KeyCode.Space);
     }
